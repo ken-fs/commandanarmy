@@ -77,7 +77,17 @@ pnpm submit-indexnow -- --site https://commandanarmy.cc   # 推送 URL 给 Bing/
 1. **`wrangler.jsonc` 必须在仓库根目录**：wrangler 的配置发现会向上找，父目录若有 `wrangler.jsonc` 会抢占本仓库配置（.toml 会输给父目录的 .jsonc）。本项目用 `wrangler.jsonc`（Workers static assets 格式，非 Pages 的 `pages_build_output_dir`）。
 2. **构建时环境变量走 build command**：`SITE_URL` / `PUBLIC_GA_ID` / `INDEXNOW_KEY` 都是构建时读取（`import.meta.env` / `process.env`），dashboard 的运行时 vars 对静态站无效。
 3. **IndexNow key 文件已提交**：`public/e701289517f739c7b7566798851dd8bf.txt`（内容=文件名），勿删。
-4. **模板同步**：上游为 `upstream` remote（`git fetch upstream && git merge upstream/main`），合并时注意 `wrangler.jsonc` 与构建命令的本地差异。
+4. **模板同步**：上游为 `upstream` remote（`git fetch upstream && git merge upstream/main`），合并时注意以下 fork 差异。
+
+### 本 fork 对模板的本地修复（upstream 合并时保留）
+
+| 文件 | 修复 | 原因 |
+| --- | --- | --- |
+| `.github/actions/gates/action.yml` | check-config 步骤补 `SITE_URL` env | 本 fork 删了 wrangler.toml，check-config 没地方读域名 |
+| `scripts/write-indexnow-key.ts` | 部署标记兼容 `WORKERS_CI_COMMIT_SHA`；标记写入独立于 INDEXNOW_KEY | Workers Builds（非 Pages）环境变量名不同；没配 INDEXNOW_KEY 时也要写标记 |
+| `tests/` 删除 4 个文件 | apply-template / agents-consistency / handbook / redirects 测试 | 模板自维护测试（drift 守卫/landing 文档中心），定制 fork 不适用 |
+| `tests/url·tags·seo·content-utils·routing-flags` | ja → `'ja' as Locale`；demo 游戏名 → Command An Army | 本站单语言（en）+ 非 demo 游戏名 |
+| `src/locales/en.json` | `home.hero.videoId: ""` | HomePage 引用该字段（空 = 不渲染 trailer 区） |
 
 ## 配置速查
 
