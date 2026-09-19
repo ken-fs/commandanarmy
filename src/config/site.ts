@@ -65,7 +65,7 @@ export const site: SiteConfig = {
   name: 'Command An Army Wiki',
   shortName: 'Command An Army',
   description: 'Command An Army guides: every unit ranked, evolution paths, working codes, formations, and winning strategies for the Roblox medieval team warfare game.',
-  domain: 'commandanarmy.gg',
+  domain: 'commandanarmy.cc',
   tagline: 'Every unit, code, and strategy to break the enemy line',
   legalNotice: 'Fan-made resource. Not affiliated with Fight, Fight, Fight! or Roblox Corporation.',
   // Set a real address if you run no social channels — the contact page
