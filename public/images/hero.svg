@@ -1,11 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316"/>
-      <stop offset="100%" stop-color="#c2410c"/>
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="55%" stop-color="#b91c1c"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#g)"/>
-  <text x="600" y="315" font-family="system-ui, sans-serif" font-size="72" font-weight="bold" fill="#fff" text-anchor="middle" dominant-baseline="middle">Anvil Quest Wiki</text>
-  <text x="600" y="400" font-family="system-ui, sans-serif" font-size="28" fill="#ffedd5" text-anchor="middle" dominant-baseline="middle">Replace this image at public/images/hero.webp</text>
+  <!-- 盾徽 -->
+  <g transform="translate(600 130) scale(1.7)" opacity="0.92">
+    <path d="M0 -55 L48 -37 V0 C48 36 25 60 0 72 C-25 60 -48 36 -48 0 V-37 Z" fill="none" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M0 -28 V30" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+    <path d="M-17 -2 H17" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-9 44 H9" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="600" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="76" font-weight="800" fill="#ffffff" text-anchor="middle">Command An Army Wiki</text>
+  <text x="600" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="30" fill="#fecaca" text-anchor="middle">Units · Codes · Tier Lists · Strategy</text>
 </svg>
