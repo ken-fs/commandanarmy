@@ -1,11 +1,11 @@
 {
-  "name": "Anvil Quest Wiki",
-  "short_name": "AQ Wiki",
-  "description": "Complete Anvil Quest wiki with boss guides, codes, and tier lists.",
+  "name": "Command An Army Wiki",
+  "short_name": "Command An Army",
+  "description": "Command An Army guides: every unit ranked, evolution paths, working codes, formations, and winning strategies for the Roblox medieval team warfare game.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#f36716",
+  "theme_color": "#ba1c1c",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
