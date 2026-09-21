@@ -118,6 +118,49 @@ pnpm submit-indexnow -- --site https://commandanarmy.cc   # 推送 URL 给 Bing/
 | units | all-units（6 兵种/进化树/Ascension）· spartan · lancer · samurai |
 | guides | best-units-tier-list · beginner-guide · evolution-guide · strategy-guide |
 
+## 内容清单（2026-09-21 扩容后：20 篇）
+
+### 第一批（9 篇，2026-09-19）
+
+codes/all-codes · guides/beginner-guide · guides/best-units-tier-list · guides/evolution-guide · guides/strategy-guide · units/all-units · units/lancer · units/samurai · units/spartan
+
+### 第二批（11 篇，2026-09-21）
+
+| 分类 | 页面 | 数据来源 |
+| --- | --- | --- |
+| guides | **unit-counters** —— 盾/矛/骑/弓四方克制三角 + 「悬停看 block damage」判定法 | 7 份创作者视频字幕（79K 字符） |
+| guides | **star-limit-and-lineup** —— 星数上限系统（每 5 级 +1 星，进化会抬高星耗） | 同上 |
+| guides | **update-2** —— Ranked / Guilds / Rapier / Reaper | 同上 |
+| guides | best-units-tier-list **重写** —— 补 Update 2 与 1.5 补丁后的 meta | 同上 |
+| units | archer（Archer→Longbowman→Flame Archer）· shieldman（→Sentinel→Imperial Wall）· halberdier（Spearman→Spear Militia→Halberdier→Imperial Halberdier）· scout-rider（→Cavalryman→Lancer）· berserker · immortal · mace · reaper | 同上 |
+
+**两条别处查不到的机制**（本站独有）：
+
+1. **星数上限**：每个单位按星级占额度，上限随账号等级增长（每 5 级 +1 星，等级封顶 50）。进化会抬高星耗 —— 所以必须**先升等级再进化**，否则会把单位进化出自己阵容的可负担范围。
+2. **判断单位能否破盾**：游戏从不显示克制表。**鼠标悬停单位看有没有 `block damage`** —— 有就是破盾单位。这是唯一可靠的 in-game 判定法。
+
+**关于 Mace 的争议**：两个创作者一个给 S 级（破盾近战 DPS），一个说「全游戏最差冲击步兵之一」。双方对机制描述完全一致，分歧在「盾牌阵容出现频率够不够高」。站上**两方观点都写了**，没有假装没有分歧。
+
+## 数据来源纪律（本类站通用）
+
+1. **Roblox badge API** = 权威实体名单（每个解锁有独立 badge，创建日期即上线日期）：
+   `https://badges.roblox.com/v1/universes/<id>/badges?limit=100&sortOrder=Asc`（翻页带 cursor）
+2. **官方美术素材**：`/v1/games/<id>/media` 返回**完整媒体库**（比 `multiget/thumbnails` 强 —— 后者只给 1 张，media 给了 6 张）；badge 图标走 `/v1/assets?assetIds=<iconImageId>`（`/v1/badges/icons` 返回空）
+3. **创作者数据**：`yt-dlp --write-auto-subs --sub-langs en --sub-format vtt` 直接抓自动字幕（**不需要 whisper 转录**，7 个视频 79K 字符几分钟搞定）
+4. **Fandom**：网页端 403，走 MediaWiki API（`api.php?action=parse&prop=wikitext`）
+
+## 竞品格局（2026-09-21 复查）
+
+| 竞品 | 状态 |
+| --- | --- |
+| `command-an-army.fandom.com` | 12 页，标注「launch 后第一次更新」，**过时 6 个月** |
+| `commandanarmy-wiki.wiki` | ⚠️ **AI 幻觉壳站** —— 单位页零真实数值，还把另一款游戏（Master of Command 的普鲁士/英国）内容混进来了 |
+| `command-an-army-wiki.wiki` | Astro 站，措辞谨慎但**数据贫弱** —— 明确写「没有受控的伤害/血量/速度对比」，只列 9 个单位（缺全部进化形态） |
+| `command-an-army.wiki` | 20K+ 字符多语言程序化站 |
+| 大媒体 | progameguides / games.gg / sportskeeda / techwiser 都有 tier list |
+
+**结论**：竞品在**结构**上不弱，但**数据**普遍贫弱。本站的护城河是「真实创作者数据 + 明确标注分歧 + 机制解释」。
+
 ## 许可
 
 站点代码基于 [AnvilWiki](https://github.com/PNGTRID/AnvilWiki)（MIT）。《Command An Army》游戏内容与素材版权归 Fight, Fight, Fight! 与 Roblox Corporation 所有；本站为粉丝站，无官方关联。
