@@ -12,6 +12,7 @@
  * It is written whenever a commit SHA is available at build time.
  */
 
+import { execFileSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { indexNowKeyFileName, normalizeIndexNowKey } from './lib/indexnow';
@@ -20,10 +21,20 @@ const dist = path.resolve(process.cwd(), 'dist');
 const key = normalizeIndexNowKey(process.env.INDEXNOW_KEY);
 
 // Cloudflare exposes the Git commit SHA to the production build — Pages as
-// CF_PAGES_COMMIT_SHA, Workers Builds as WORKERS_CI_COMMIT_SHA.
+// CF_PAGES_COMMIT_SHA, Workers Builds as WORKERS_CI_COMMIT_SHA, GitHub Actions
+// as GITHUB_SHA; local builds fall back to `git rev-parse HEAD` (2026-10-12:
+// without the fallback, a local `wrangler deploy` shipped NO marker and the
+// daily patrol read it as "deploy broken").
+function gitHead(): string | undefined {
+  try {
+    return execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {
+    return undefined;
+  }
+}
 const commitSha = (
-  process.env.CF_PAGES_COMMIT_SHA ?? process.env.WORKERS_CI_COMMIT_SHA
-)?.trim();
+  process.env.CF_PAGES_COMMIT_SHA ?? process.env.WORKERS_CI_COMMIT_SHA ?? process.env.GITHUB_SHA
+)?.trim() || gitHead();
 
 if (!key && !commitSha) {
   console.log('[IndexNow] INDEXNOW_KEY not configured; key file emission skipped.');
