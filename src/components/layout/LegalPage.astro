@@ -15,11 +15,13 @@ interface Props {
   description?: string;
   /** ISO date string for "last updated". */
   lastUpdated?: string;
+  /** Override the <title> suffix (defaults to site.name = "… Wiki"). About passes "" so the page stops phrase-matching "<game> wiki" and the homepage owns that query. */
+  titleSuffix?: string;
 }
-const { locale, title, description = `${title} for ${site.name}.`, lastUpdated } = Astro.props;
+const { locale, title, description = `${title} for ${site.name}.`, lastUpdated, titleSuffix } = Astro.props;
 ---
 
-<LocaleLayout locale={locale} title={title} description={description}>
+<LocaleLayout locale={locale} title={title} description={description} titleSuffix={titleSuffix}>
   <article class="mx-auto max-w-3xl">
     <h1 class="text-3xl font-extrabold tracking-tight md:text-4xl">{title}</h1>
     {lastUpdated && <p class="mt-2 text-sm text-muted-foreground">Last updated: {lastUpdated}</p>}

@@ -31,6 +31,8 @@ interface Props {
   /** Article dates for og article:published/modified_time — forwarded to BaseLayout. */
   articlePublished?: Date;
   articleModified?: Date;
+  /** <title> suffix override — forwarded to BaseLayout (About passes ""). */
+  titleSuffix?: string;
 }
 const { locale, availableLocales, ...rest } = Astro.props;
 const currentPath = Astro.url.pathname;
