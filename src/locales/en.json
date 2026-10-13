@@ -168,8 +168,8 @@
     },
     "hero": {
       "badge": "Fan-made wiki",
-      "title": "Command An Army Codes",
-      "description": "Every working Command An Army code with expiry dates — plus the wiki’s unit tier lists, evolution paths and formation guides.",
+      "title": "Command An Army Wiki",
+      "description": "Every unit ranked, evolution paths and formation guides for the Roblox medieval war game, plus the working codes list, re-checked after every patch.",
       "ctaPrimary": "Play now",
       "ctaSecondary": "Browse guides",
       "videoId": ""
@@ -180,8 +180,8 @@
       "cards": [
         {
           "number": "1",
-          "title": "Codes",
-          "description": "3,500+ Gems right now",
+          "title": "Command An Army codes",
+          "description": "Free Gems and Skill Crystals",
           "icon": "lucide:gift",
           "href": "/codes/all-codes"
         },
@@ -208,7 +208,7 @@
         {
           "order": 1,
           "name": "Active codes",
-          "description": "7 codes working as of Sep 19 — redeem before they expire",
+          "description": "Working codes, re-checked after every patch. Redeem before they expire",
           "href": "/codes/all-codes",
           "displayType": "badge-list",
           "highlights": [
